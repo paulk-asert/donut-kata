@@ -1,0 +1,33 @@
+plugins {
+    id 'groovy'
+}
+
+ext.groovyVersion = "4.0.2"
+ext.eclipseCollectVersion = "11.0.0"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.apache.groovy:groovy:$groovyVersion"
+    implementation "org.apache.groovy:groovy-datetime:$groovyVersion"
+    implementation "org.eclipse.collections:eclipse-collections-api:$eclipseCollectVersion"
+    implementation "org.eclipse.collections:eclipse-collections:$eclipseCollectVersion"
+    testImplementation "org.apache.groovy:groovy-test-junit5:$groovyVersion"
+    testImplementation "org.eclipse.collections:eclipse-collections-testutils:$eclipseCollectVersion"
+}
+
+group = 'org.apache.groovy'
+version = '1.0.0-SNAPSHOT'
+description = 'Donut Kata Groovy Solutions'
+
+tasks.withType(GroovyCompile).configureEach {
+    options.encoding = 'UTF-8'
+    groovyOptions.forkOptions.jvmArgs += ['-Dgroovy.extension.disable=collect,toSet,countBy']
+}
+
+test {
+    systemProperty 'groovy.extension.disable', 'collect,toSet,countBy'
+    useJUnitPlatform()
+}
