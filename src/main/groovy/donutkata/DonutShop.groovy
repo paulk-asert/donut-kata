@@ -92,7 +92,7 @@ class DonutShop {
     private Number calculatePricePerDonut(int orderSize) {
         return PRICES.detectIfNone(
                 pair -> pair.one.contains(orderSize),
-                () -> { throw new IllegalArgumentException("This order cannot be satisfied"); })
+                () -> { throw new IllegalArgumentException("This order cannot be satisfied") })
                 .two
     }
 
