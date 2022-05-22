@@ -147,6 +147,6 @@ class DonutShop {
 
     @Override
     String toString() {
-        "DonutShop(donuts=" + donuts.toStringOfItemToCount() + ", deliveries=" + deliveries + ')'
+        "DonutShop(donuts=${donuts.toStringOfItemToCount()}, deliveries=$deliveries)"
     }
 }

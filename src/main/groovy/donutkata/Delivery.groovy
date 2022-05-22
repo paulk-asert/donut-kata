@@ -45,7 +45,7 @@ record Delivery(Order order, ImmutableList<Donut> donuts) {
 
     @CompileDynamic
     Number getTotalPrice() {
-        donuts.sum{ it.price }
+        donuts.sum(donut -> donut.price)
     }
 
     @Override

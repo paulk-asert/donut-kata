@@ -38,8 +38,8 @@ record Customer(String name, MutableList<Delivery> deliveries = Lists.mutable.em
     }
 
     SetIterable<DonutType> getDonutTypesOrdered() {
-        deliveries().flatCollect{delivery -> delivery.donuts() }
-                .collect{donut -> donut.type() }
+        deliveries.flatCollect(delivery -> delivery.donuts())
+                .collect(donut -> donut.type())
                 .toSet()
     }
 }
