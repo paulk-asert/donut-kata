@@ -141,7 +141,7 @@ class DonutShop {
         deliveries
                 .select(each -> (each.deliveredOn(fromDate) || each.date.isAfter(fromDate)))
                 .select(each -> (each.deliveredOn(toDate) || each.date.isBefore(toDate)))
-                .flatCollect(delivery -> delivery.donuts)
+                .flatCollect(Delivery::donuts)
                 .summarizeDouble(donut -> donut.price.doubleValue())
     }
 

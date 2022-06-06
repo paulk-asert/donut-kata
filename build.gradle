@@ -2,11 +2,12 @@ plugins {
     id 'groovy'
 }
 
-ext.groovyVersion = "4.0.2"
+ext.groovyVersion = "4.0.3"
 ext.eclipseCollectVersion = "11.0.0"
 
 repositories {
     mavenCentral()
+//    mavenLocal()
 }
 
 dependencies {

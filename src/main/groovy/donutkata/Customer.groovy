@@ -16,6 +16,7 @@
 
 package donutkata
 
+import groovy.transform.CompileDynamic
 import groovy.transform.ToString
 import org.eclipse.collections.api.list.ListIterable
 import org.eclipse.collections.api.list.MutableList
@@ -37,9 +38,10 @@ record Customer(String name, MutableList<Delivery> deliveries = Lists.mutable.em
         deliveries.sumOfInt(Delivery::getTotalDonuts)
     }
 
+    @CompileDynamic
     SetIterable<DonutType> getDonutTypesOrdered() {
-        deliveries.flatCollect(delivery -> delivery.donuts())
-                .collect(donut -> donut.type())
+        deliveries.flatCollect(Delivery::donuts)
+                .collect(Donut::type)
                 .toSet()
     }
 }
