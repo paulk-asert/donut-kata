@@ -2,8 +2,9 @@ plugins {
     id 'groovy'
 }
 
+//ext.groovyVersion = "5.0.0-SNAPSHOT"
 ext.groovyVersion = "4.0.3"
-ext.eclipseCollectVersion = "11.0.0"
+ext.eclipseCollectVersion = "11.1.0"
 
 repositories {
     mavenCentral()

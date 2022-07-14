@@ -118,8 +118,8 @@ class DonutShop {
 
     MutableList<ObjectIntPair<DonutType>> getTopDonuts(int n) {
         deliveries
-                .flatCollect(delivery -> delivery.donuts)
-                .countBy(donut -> donut.type)
+                .flatCollect(Delivery::donuts)
+                .countBy(Donut::type)
                 .topOccurrences(n)
     }
 
